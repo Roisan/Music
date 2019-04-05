@@ -1,6 +1,8 @@
 package com.example.music.adapters
 
 import android.content.Context
+import android.os.Bundle
+import android.support.v4.app.FragmentActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +13,9 @@ import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import com.example.music.R
 import com.example.music.Songs
+import com.example.music.activities.MainActivity
+import com.example.music.fragments.MainScreenFragment
+import com.example.music.fragments.SongPlayingFragment
 import org.w3c.dom.Text
 
 class MainScreenAdapter(_songDetails: ArrayList<Songs>,_context: Context): RecyclerView.Adapter<MainScreenAdapter.MyViewHolder>(){
@@ -29,7 +34,18 @@ class MainScreenAdapter(_songDetails: ArrayList<Songs>,_context: Context): Recyc
         p0.trackTitle?.text = songObject?.songTitle
         p0.trackArtist?.text = songObject?.artist
         p0.contentHolder?.setOnClickListener({
-            Toast.makeText(mContext,"Hey " + songObject?.songTitle,Toast.LENGTH_SHORT).show()
+            val songPlayingFragment = SongPlayingFragment()
+            val args = Bundle()
+            args.putString("songArtist", songObject?.artist)
+            args.putString("path", songObject?.songData)
+            args.putString("songTitle", songObject?.songTitle)
+            args.putInt("songId", songObject?.songID?.toInt() as Int)
+            args.putInt("songPosition", p1)
+            args.putParcelableArrayList("songData",songDetails)
+            (mContext as FragmentActivity).supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.details_fragment, songPlayingFragment)
+                .commit()
         })
 
     }
