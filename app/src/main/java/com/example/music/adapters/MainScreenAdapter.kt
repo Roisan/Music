@@ -42,6 +42,7 @@ class MainScreenAdapter(_songDetails: ArrayList<Songs>,_context: Context): Recyc
             args.putInt("songId", songObject?.songID?.toInt() as Int)
             args.putInt("songPosition", p1)
             args.putParcelableArrayList("songData",songDetails)
+            songPlayingFragment.arguments = args
             (mContext as FragmentActivity).supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.details_fragment, songPlayingFragment)

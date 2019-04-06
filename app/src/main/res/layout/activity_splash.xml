@@ -4,9 +4,9 @@
                 android:background="@drawable/bg_gradient"
                 xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ImageView android:layout_width="200dp"
-               android:layout_height="200dp"
-               android:background="@drawable/music"
+    <ImageView android:layout_width="150dp"
+               android:layout_height="150dp"
+               android:background="@drawable/music1"
                android:layout_centerInParent="true"
                android:minHeight="0dp"
                android:minWidth="0dp"
