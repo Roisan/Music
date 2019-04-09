@@ -46,6 +46,7 @@ class MainScreenAdapter(_songDetails: ArrayList<Songs>,_context: Context): Recyc
             (mContext as FragmentActivity).supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.details_fragment, songPlayingFragment)
+                .addToBackStack("SongPlayingFragment")
                 .commit()
         })
 
