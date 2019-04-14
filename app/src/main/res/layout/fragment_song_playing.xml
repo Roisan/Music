@@ -29,6 +29,16 @@
                 app:av_bubblesPerLayer="16"
                 app:av_wavesColors="@array/rainbow"/>
 
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/favouriteIcon"
+                android:layout_alignParentRight="true"
+                android:layout_margin="11dp"
+                android:background="@drawable/circle"
+                android:src="@drawable/heart"
+        />
+
 
 
     </RelativeLayout>

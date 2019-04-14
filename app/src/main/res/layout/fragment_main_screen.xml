@@ -17,7 +17,7 @@
                     android:id="@+id/hiddenBarMainScreen"
                     android:layout_alignParentBottom="true"
                     android:visibility="invisible"
-                    android:background="@color/colorPrimary">
+                    android:background="#b0b0b0">
                 <ImageButton android:layout_width="wrap_content"
                              android:layout_height="wrap_content"
                              android:id="@+id/playPauseButton"
