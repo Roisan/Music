@@ -57,10 +57,10 @@ class FavouriteFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_favourite, container, false)
-
+        activity?.title = "Favourites"
         noFavourites = view?.findViewById(R.id.noFavourites)
         nowPlayingBottomBar = view?.findViewById(R.id.FavBottomBar)
-        songTitle = view?.findViewById(R.id.songTitle)
+        songTitle = view?.findViewById(R.id.songTitleMainScreen)
         playPauseButton = view?.findViewById(R.id.playPauseButton)
         recyclerView = view?.findViewById(R.id.favouriteRecycler)
 

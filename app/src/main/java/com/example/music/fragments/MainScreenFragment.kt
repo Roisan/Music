@@ -48,6 +48,7 @@ class MainScreenFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
        val view = inflater.inflate(R.layout.fragment_main_screen, container, false)
+        activity?.title = "All songs"
         visibleLayout = view?.findViewById<RelativeLayout>(R.id.visibleLayout)
         noSongs = view?.findViewById<RelativeLayout>(R.id.noSongs)
         nowPlayingBottomBar = view?.findViewById<RelativeLayout>(R.id.hiddenBarMainScreen)

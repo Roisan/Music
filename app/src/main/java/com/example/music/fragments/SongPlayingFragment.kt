@@ -120,8 +120,14 @@ class SongPlayingFragment : Fragment() {
         }
 
         fun updateTextView(songTitle: String, songArtist: String){
-            Statified.songTitleView?.setText(songTitle)
-            Statified.songArtistView?.setText(songArtist)
+            var songTitleUpdated = songTitle
+            var songArtistUpdated = songArtist
+            if(songTitle.equals("<unknown>",true))
+                songTitleUpdated = "Unknown"
+            if(songArtist.equals("<unknown>",true))
+                songArtistUpdated = "Unknown"
+            Statified.songTitleView?.setText(songTitleUpdated)
+            Statified.songArtistView?.setText(songArtistUpdated)
         }
 
         fun processInformation(mediaPlayer: MediaPlayer){
@@ -177,6 +183,7 @@ class SongPlayingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.fragment_song_playing, container, false)
+        activity?.title = "Now Playing"
         Statified. seekbar = view?.findViewById(R.id.seekBar)
         Statified. startTimeText = view?.findViewById(R.id.startTime)
         Statified.endTimeText = view?.findViewById(R.id.endTime)
