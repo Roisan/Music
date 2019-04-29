@@ -24,7 +24,7 @@ class MusicDatabase: SQLiteOpenHelper{
 
     override fun onCreate(sqLiteDatabase: SQLiteDatabase?) {
         sqLiteDatabase?.execSQL("CREATE TABLE " + Staticated.TABLE_NAME + "( " +Staticated.COLUMN_ID + " INTEGER,"
-                + Staticated.COLUMN_SONG_ARTIST + " STRING," + Staticated.COLUMN_TITLE +" sTRING,"+ Staticated.COLUMN_SONG_PATH + " STRING);")
+                + Staticated.COLUMN_SONG_ARTIST + " STRING," + Staticated.COLUMN_TITLE +" STRING,"+ Staticated.COLUMN_SONG_PATH + " STRING);")
 
             }
 
@@ -58,7 +58,7 @@ class MusicDatabase: SQLiteOpenHelper{
                     var _artist=csor.getString(csor.getColumnIndexOrThrow( Staticated.COLUMN_SONG_ARTIST))
                     var _title = csor.getString(csor.getColumnIndexOrThrow( Staticated.COLUMN_TITLE))
                     var _path = csor.getString(csor.getColumnIndexOrThrow( Staticated.COLUMN_SONG_PATH))
-                    _songList.add(Songs(_id as Long,_title,_artist,_path,0))
+                    _songList.add(Songs(_id.toLong(),_title,_artist,_path,0))
 
                 }while (csor.moveToNext())
             }else{
@@ -72,7 +72,7 @@ class MusicDatabase: SQLiteOpenHelper{
     }
 
     fun checkifIDExists(_id: Int): Boolean{
-        var storeId = -100
+        var storeId = -1090
         val db = this.readableDatabase
         val query_params = "SELECT * FROM " +  Staticated.TABLE_NAME + " WHERE SongID = '$_id'"
         val csor = db.rawQuery(query_params,null)
@@ -83,7 +83,7 @@ class MusicDatabase: SQLiteOpenHelper{
         }else{
             return false
         }
-        return storeId != -100
+        return storeId != -1090
     }
 
     fun deleteFavourite(_id: Int){

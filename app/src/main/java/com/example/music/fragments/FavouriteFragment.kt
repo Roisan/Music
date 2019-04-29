@@ -39,6 +39,7 @@ private const val ARG_PARAM2 = "param2"
 class FavouriteFragment : Fragment() {
 
     var myActivity: Activity?= null
+    var getSongsList: ArrayList<Songs>?= null
     var noFavourites: TextView?= null
     var playPauseButton: ImageButton?= null
     var nowPlayingBottomBar: RelativeLayout?= null
@@ -83,10 +84,21 @@ class FavouriteFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        getSongsList = getSongsFromPhone()
+        if(getSongsList == null){
+            recyclerView?.visibility = View.INVISIBLE
+            noFavourites?.visibility = View.INVISIBLE
+        }else{
+            var favouriteAdapter = FavouriteAdapter(getSongsList as ArrayList<Songs>,myActivity as Context)
+            val mLayoutManager = LinearLayoutManager(activity)
+            recyclerView?.layoutManager = mLayoutManager
+            recyclerView?.itemAnimator = DefaultItemAnimator()
+            recyclerView?.adapter = favouriteAdapter
+            recyclerView?.setHasFixedSize(true)
+        }
         favouriteContent = MusicDatabase(myActivity)
         displayFavouritesBySearch()
         bottomBarSetup()
-
     }
 
     override fun onResume() {

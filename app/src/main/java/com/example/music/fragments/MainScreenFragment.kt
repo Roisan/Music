@@ -20,6 +20,7 @@ import android.widget.TextView
 import com.example.music.R
 import com.example.music.Songs
 import com.example.music.adapters.MainScreenAdapter
+import kotlinx.android.synthetic.main.fragment_favourite.*
 import java.lang.Exception
 
 
@@ -49,12 +50,12 @@ class MainScreenFragment : Fragment() {
         // Inflate the layout for this fragment
        val view = inflater.inflate(R.layout.fragment_main_screen, container, false)
         activity?.title = "All songs"
-        visibleLayout = view?.findViewById<RelativeLayout>(R.id.visibleLayout)
-        noSongs = view?.findViewById<RelativeLayout>(R.id.noSongs)
-        nowPlayingBottomBar = view?.findViewById<RelativeLayout>(R.id.hiddenBarMainScreen)
-        songTitle = view?.findViewById<TextView>(R.id.songTitleMainScreen)
-        playPauseButton = view?.findViewById<ImageButton>(R.id.playPauseButton)
-        recyclerView = view?.findViewById<RecyclerView>(R.id.contentMain)
+        visibleLayout = view?.findViewById(R.id.visibleLayout)
+        noSongs = view?.findViewById(R.id.noSongs)
+        nowPlayingBottomBar = view?.findViewById(R.id.hiddenBarMainScreen)
+        songTitle = view?.findViewById(R.id.songTitleMainScreen)
+        playPauseButton = view?.findViewById(R.id.playPauseButton)
+        recyclerView = view?.findViewById(R.id.contentMain)
 
         return view
 
